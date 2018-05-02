@@ -7,5 +7,5 @@ setup(
       url="http://github.com/lteam/logger-python",
       license="Apache Lisence 2",
       packages= find_packages(),
-      scripts=["src/logger.py"],
+      scripts=["logger/logger.py"],
       )
