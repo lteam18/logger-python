@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 setup(
-      name="logger",
-      version="0.1",
+      name="loggerx",
+      version="0.2",
       description="logger",
       author="Edwin.JH.Lee",
       url="http://github.com/lteam/logger-python",
