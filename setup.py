@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 setup(
       name="loggerxx",
-      version="0.9",
+      version="0.10",
       description="logger",
       author="Edwin.JH.Lee",
       url="http://github.com/lteam/logger-python",
