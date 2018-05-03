@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 setup(
-      name="logger",
+      name="loggerxx",
       version="0.9",
       description="logger",
       author="Edwin.JH.Lee",
