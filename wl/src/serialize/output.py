@@ -10,7 +10,7 @@ def logFile(filePath):
 
 def logConsole():
     def log(msg):
-        print msg
+        print(msg)
         
     return log
 

@@ -1,10 +1,10 @@
-import output as Output
+import output
 import json
 
 class Major(object):
     
     def __init__(self, levelLogStringify = json.dumps, \
-                 output = Output.CONSOLE):
+                 output = output.CONSOLE):
         self.levelLogStringify = levelLogStringify
         self.output = output
 
