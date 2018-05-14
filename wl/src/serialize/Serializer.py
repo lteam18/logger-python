@@ -1,12 +1,15 @@
-import output
 import json
+from serialize import Output
 
 class Major(object):
     
     def __init__(self, levelLogStringify = json.dumps, \
-                 output = output.CONSOLE):
+                 output = Output.CONSOLE):
         self.levelLogStringify = levelLogStringify
-        self.output = output
+        if isinstance(output, list):
+            self.output = Output.combine(output)
+        else:
+            self.output = output
 
     def log(self, data):
         self.output(self.levelLogStringify(data))

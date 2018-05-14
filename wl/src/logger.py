@@ -8,7 +8,10 @@ class Logger(object):
             if (serializer == None):
                 serializer = Serializer.Major()
             self.nameList = nameList
-            self.serializer = serializer
+            if isinstance(serializer, list):
+                self.serializer = Serializer.combine(serializer)
+            else:
+                self.serializer = serializer
 
     @classmethod  
     def createRoot(cls, name, serializer = Serializer.Major()):
