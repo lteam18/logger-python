@@ -1,6 +1,6 @@
-def logFile(filePath):
+def log_file(file_path):
     def log(msg):
-        fo = open(filePath, "a+")
+        fo = open(file_path, "a+")
         fo.write(msg)
         fo.write('\n')
         fo.close()
@@ -8,22 +8,19 @@ def logFile(filePath):
     return log
 
 
-def logConsole():
+def log_console():
     def log(msg):
         print(msg)
-        
+
     return log
 
-def combine(funcList):
+
+def combine(func_list):
     def log(msg):
-        for func in funcList:
+        for func in func_list:
             func(msg)
 
     return log
 
-CONSOLE = logConsole()
-    
-    
-        
-    
-    
+
+CONSOLE = log_console()
