@@ -1,4 +1,5 @@
 import time
+import utils as u
 
 history = time.time()
 RED = 31
@@ -27,19 +28,22 @@ DEFAULT_CHALK_LEVEL_MAP = {
 }
 
 
-def create_chalk(fmap=DEFAULT_CHALK_LEVEL_MAP, SEP=9,
-                 LEADING_SPACE=" ", LEADING_CHARS="_"):
+def create_chalk(fmap=DEFAULT_CHALK_LEVEL_MAP, sep=9,
+                 leading_space=' ', leading_char='_'):
     global history
     history = time.time()
 
     def chalk(data):
         global history
-        diff = int(data['T'] - history)
+        diff = int((data['T'] - history) * 1000)
         history = data['T']
         general_text_fun = fmap[data['L']]
-        # TODO format it
+
+        diff_time_str = u.format_diff_string(diff, max_string=sep)
+        diff_time_str = diff_time_str.rjust(sep, leading_char)
+
         diff_time_fun = chalk_function(front=BLUE)
-        l_diff_time = diff_time_fun(diff)
+        l_diff_time = diff_time_fun(diff_time_str)
         time_fun = chalk_function(front=WHITE)
         l_time = time_fun(data['T'])
         l_namelist = str(data['N'])
@@ -49,6 +53,6 @@ def create_chalk(fmap=DEFAULT_CHALK_LEVEL_MAP, SEP=9,
         if 'D' in data:
             l_data = general_text_fun(data['D'])
             msg += "\n" + l_data
-        return msg.replace("\n", "\n" + LEADING_SPACE)
+        return msg.replace("\n", "\n" + leading_space)
 
     return chalk
