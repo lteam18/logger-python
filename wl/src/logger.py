@@ -22,7 +22,7 @@ class Logger(object):
     def _output_dict(self, level, msg, data, trace):
         dic = collections.OrderedDict()
         dic['N'] = self.nameList
-        dic['T'] = int(time.time())
+        dic['T'] = time.time()
         dic['L'] = level
         if msg is not None:
             dic['M'] = msg
